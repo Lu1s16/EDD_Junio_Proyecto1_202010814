@@ -1,7 +1,7 @@
 //---------------------------------------------importaciones e inicializaciones-----------------------------
 import { Lista_Admin } from "./Estructuras.js"
 
-
+var list = new Lista_Admin
 
 
 //-----------------------------------------------------Pagina home--------------------------------------------
@@ -9,7 +9,8 @@ document.getElementById("ingresar_admin").onclick = Ingresar;
 
 
 function Ingresar(){
-
+        list.InsertarAlFinal("Luis", "3045", "guicho", "123", "6636")
+        list.Imprimir()
 
         document.getElementById("options").style.display = "none"
         document.getElementById("Menu").style.display = "block"
