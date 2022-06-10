@@ -1,0 +1,105 @@
+/*-----------------Home------------------*/
+
+#login{
+    height: 400px;
+    width: 300px;
+    background-color: bisque;
+    position:absolute;
+    left:60px;
+    top:150px;
+}
+
+#admin{
+    height: 400px;
+    width: 300px;
+    background-color: bisque;
+    position: absolute;
+    left: 1020px;
+    top: 150px;
+}
+
+#options{
+    height: 60px;
+    width: 1250px;
+    background-color: aqua;
+    position:relative;
+    left:60px;
+    top: 5px;
+    
+}
+
+#top{
+    height: 300px;
+    width: 1250px;
+    background-color: aquamarine;
+    position:absolute;
+    left:60px;
+    top: 600px;
+}
+
+#fondo{
+    height: 400px;
+    width: 590px;
+    background-color: rgb(98, 91, 196);
+    position:absolute;
+    left:400px;
+    top: 150px;
+}
+
+#Autores{
+    position:absolute;
+    left: 300px;
+    top: 10px;
+
+}
+#Libros{
+    position:absolute;
+    left: 850px;
+    top: 10px;
+}
+
+
+/*----------------------Administrador----------------*/
+
+#botones{
+    height: 200px;
+    width: 700px;
+    background-color: aquamarine;
+    position: relative;
+    left: 350px;
+    top: 50px;
+}
+
+#cola{
+    height: 300px;
+    width: 1025px;
+    background-color: darkturquoise;
+    position: relative;
+    left: 200px;
+    top: 80px;
+
+}
+
+#lista{
+    height: 500px;
+    width: 1025px;
+    background-color: fuchsia;
+    position: relative;
+    left: 200px;
+    top: 100px;
+
+}
+
+#Menu{
+    position: absolute;
+    left: 5px;
+    top: 5px;
+}
+
+/*-----------------------------Vista cliente---------------------*/
+
+
+/*-----------------------------Vista libros-----------------------*/
+
+/*-----------------------------Vista autores----------------------*/
+
