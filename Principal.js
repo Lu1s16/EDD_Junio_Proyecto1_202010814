@@ -1,7 +1,7 @@
 //---------------------------------------------importaciones e inicializaciones-----------------------------
 import { Lista_Admin } from "./Estructuras.js"
 
-var list = new Lista_Admin
+var list = new Lista_Admin()
 
 
 //-----------------------------------------------------Pagina home--------------------------------------------
