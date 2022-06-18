@@ -5,8 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Home.css">
-    
-    <script type="module" src="Principal.js"></script>
 
     <title>Proyecto</title>
 </head>
@@ -17,11 +15,11 @@
 
     <div id="options" style="display:block;">
         <center><font face="Comic Sans MS,arial" size="6">Libreria "catsbooks"</font></center>
-        <A HREF="Administrador.html" id="Autores">Autores</A>
-        <A HREF="Libros.html" id="Libros">Libros</A>
+        <button name="button" id="Autores">Autores</button>
+        <button name="button" id="Libros">Libros</button>
     </div>
 
-    <div id="login" style="display:block;">
+    <div id="login" style="display:block;"> <!--login usuario-->
         <center><p>Login(Usuarios)</p></center>
         <p>Usuario:</p>
         <input type="text" name="usuario" id="usuario_cliente"/>
@@ -29,10 +27,10 @@
         <input type="text" name="contraseña" id="contraseña_cliente"/>
         <br>
         <br>
-        <center><button name="button">Ingresar</button></center>
+        <center><button name="button" id="ingresar_usuario">Ingresar</button></center>
     </div>
 
-    <div id="admin" style="display:block;">
+    <div id="admin" style="display:block;">  <!--login admin-->
         <center><p>Login(Administradores)</p></center>
         <p>Usuario:</p>
         <input type="text" name="usuarion" id="usuario_admin"/>
@@ -60,12 +58,21 @@
 
 
     <br>
-    <center><font face="Comic Sans MS,arial" size="10">Bienvenido</font></center>
+    
     
     <div id="botones" style="display:none;">
-        <button name="button">Cargar libros</button>
-        <button name="button">Cargar Autores</button>
-        <button name="button">Cargar Usuarios</button>
+        <center><font face="Comic Sans MS,arial" size="10">Bienvenido</font></center>
+        <center>
+            <p id="text_libros">Cargar libros</p>
+            <input type="file" id="Cargar_libros">
+
+            <p id="text_autores">Cargar Autores</p>
+            <input type="file" id="Cargar_autores">
+
+            <p id="text_usuarios">Cargar Usuarios</p>
+            <input type="file" id="Cargar_usuarios">
+        </center>
+        
 
     </div>
     <div id="cola" style="display:none;">
@@ -75,7 +82,7 @@
     </div>
 
     <div id="lista" style="display:none;">
-        <center><p>LIsta de listas</p></center>
+
 
     </div>
 
@@ -84,13 +91,86 @@
 
     <!--------------------------------------------Vista cliente------------------------------------------------->
 
+    <div id="libros_fantasia" style="display:none"¨>
+        <center><h1><FONT color="black">Libros fantasia</FONT></h1></center>
+    </div>
+
+    <div id="libros_thriller" style="display:none;">
+        <center><p>Libros thriller</p></center>
+    </div>
+
+    <button name="button" id="Home" style="display:none;">Regresar</button>
+
 
     <!---------------------------------------------Vista libros------------------------------------------------->
+
+    <div id="Botones" style="display:none;">
+        <button name="button" id="Ordenar_ascendente" >Ordenar ascendentemente</button>
+        <button name="button " id="Ordenar_descendente" >Ordenar Descendentemente</button>
+        <center><font face="Comic Sans MS,arial" size="6">Libros</font></center>
+    </div>
+
+    <div id="lista_libros" style="display:none;">
+
+    </div>
+
+    <div id="lista_ascendente" style="display:none;">
+        <center><h2>Lista ascendente</h2></center>
+        
+
+    </div>
+    <div id="lista_descendente" style="display:none;">
+        <center><h2>Lista descendente</h2></center>
+
+    </div>
+    
+    <div id="Codigo_Burbuja" style="display:none;">
+        <center><h2>Ordenamiento Burbuja</h2></center>
+
+    </div>
+    <div id="Codigo_Quicksort" style="display:none;">
+        <center><h2>Ordenamiento Quicksort</h2></center>
+        
+    </div>
+    
+    <button name="button" id="LibrosToHome" style="display:none;">Regresar</button>
 
 
     <!---------------------------------------------Vista autores------------------------------------------------>
     
 
+    <center><h1><FONT face="Comic Sans MS,arial">Autores</FONT></h1></center>
+
+    <div id="Lista_Autores" style="display:none;">
+        
+
+    </div>
+
+    <div id="Arbol" style="display:none;">
+
+    </div>
+
+    <div id="Buscador" style="display:none;">
+        <button name="button" id="Buscar_autor">Buscar</button>
+        <input type="text" id="nombre_autor"/>
+
+    </div>
+
+    <button name="button" id="autorToHome" style="display:none;">Regresar</button>
+
+    <div id="Biografia" style="display:none;">
+        <center><h3>Biografia</h3></center>
+
+    </div>
+
+    <!------------------------------------links------------------->
+
+    
+
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://unpkg.com/@hpcc-js/wasm@0.3.11/dist/index.min.js"></script>
+    <script src="https://unpkg.com/d3-graphviz@3.0.5/build/d3-graphviz.min.js"></script>
+    <script type="module" src="Principal.js"></script>
     
 </body>
 </html>

@@ -96,10 +96,239 @@
     top: 5px;
 }
 
+#text_libros{
+    position: absolute;
+    left: 5px;
+    top: 40px;
+}
+
+#text_autores{
+    position: absolute;
+    left: 200px;
+    top: 40px;
+}
+
+#text_usuarios{
+    position: absolute;
+    left: 400px;
+    top: 40px;
+}
+
+
+#Cargar_libros{
+    position: absolute;
+    left: 5px;
+    top: 100px;
+}
+
+#Cargar_autores{
+    position: absolute;
+    left: 200px;
+    top: 100px;
+}
+
+#Cargar_usuarios{
+    position: absolute;
+    left: 400px;
+    top: 100px;
+}
+
+#tarjeta{
+    height: 100px;
+    width: 120px;
+    background-color: rgb(255, 0, 0);
+    margin: 20px 20px 20px 20px;
+}
+
+
 /*-----------------------------Vista cliente---------------------*/
+
+#libros_fantasia{
+    height: 2000px;
+    width: 1900px;
+    background-image:
+    url("estanteria.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    left: 0px;
+    top: 50px;
+    
+}
+
+#libros_thriller{
+    height: 1200px; /*altura*/
+    width: 1400px;
+    background-color: rgb(167, 129, 48);
+    position: absolute;
+    left: 0px;
+    top: 2100px;
+}
+
+#Home{
+    position: absolute;
+    left: 5px;
+    top: 5px;
+}
+
 
 
 /*-----------------------------Vista libros-----------------------*/
 
+#Botones{
+    height: 100px;
+    width: 1150px;
+
+    background-color: yellowgreen;
+    position: absolute;
+    left: 100px;
+    top: 10px;
+
+}
+
+#Ordenar_ascendente{
+    position: absolute;
+    left: 200px;
+    top: 40px;
+}
+
+#Ordenar_descendente{
+    position: absolute;
+    left: 750px;
+    top: 40px;
+}
+
+#lista_libros{
+    height: 600px;
+    width: 250px;
+    overflow: scroll;
+    background-color: crimson;
+    position: absolute;
+    left: 20px;
+    top: 150px;
+    
+}
+
+#lista_ascendente{
+    height: 600px;
+    width: 250px;
+    overflow: scroll;
+    background-color: crimson;
+    position: absolute;
+    left: 500px;
+    top: 150px;
+}
+
+#lista_descendente{
+    height: 600px;
+    width: 250px;
+    overflow: scroll;
+    background-color: crimson;
+    position: absolute;
+    left: 1000px;
+    top: 150px;
+}
+
+#Codigo_Burbuja{
+    height: 600px;
+    width: 600px;
+    overflow: scroll;
+    background-color: darkgray;
+    position: absolute;
+    left: 10px;
+    top: 800px;
+
+}
+
+#Codigo_Quicksort{
+    height: 600px;
+    width: 600px;
+    overflow: scroll;
+    background-color: darkgray;
+    position: absolute;
+    left: 700px;
+    top: 800px;
+}
+
+#LibrosToHome{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+
+}
+
+
+
 /*-----------------------------Vista autores----------------------*/
 
+#Lista_Autores{
+    height: 800px;
+    width: 250px;
+    overflow: scroll;
+    background-color: burlywood;
+    position: absolute;
+    left: 10px;
+    top: 100px;
+}
+
+#Arbol{
+    
+    height: 500px;
+    width: 1000px;
+    background-color: burlywood;
+    position: absolute;
+    left: 300px;
+    top: 100px;
+}
+
+#Buscador{
+    height: 30px;
+    width: 300px;
+    background-color: rgb(89, 1, 189);
+    position: absolute;
+    left: 800px;
+    top: 50px;
+}
+
+#autorToHome{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+#tarjeta_autor{
+    height: 200px;
+    width: 200px;
+    background-color: rgb(21, 255, 0);
+    margin: 20px 20px 20px 20px;
+}
+
+#imagen_autor{ /*Agregar imagen en div*/
+    height: 130px;
+    width: 150px;
+    background-image: 
+    url("avatar_autor.png");
+    /*primero: arriba segundo: tercero: abajo cuarto: izquierda */
+    margin: 20px 20px 10px 20px;
+    background-size: cover;
+}
+
+#Biografia{
+    height: 200px;
+    width: 300px;
+    background-color: burlywood;
+    position: absolute;
+    left: 650px;
+    top: 650px;
+
+}
+
+#tarjeta_biografia{
+    overflow: scroll;
+    height: 180px;
+    width: 280px;
+    background-color: aqua;
+    margin: 10px 10px 10px 10px;
+
+}
