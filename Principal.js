@@ -2,7 +2,6 @@
 import { Lista_Admin } from "./Estructuras.js"
 import { ListaCircular_usuarios } from "./Estructuras.js";
 import { Matriz } from "./Matriz_ortogonal.js";
-import { Matriz_d } from "./matriz_dispersa.js";
 import { Arbol } from "./Arbol_binario.js";
 import { lista_libros } from "./Lista_Libros.js";
 import { Top } from "./lista_top.js";
