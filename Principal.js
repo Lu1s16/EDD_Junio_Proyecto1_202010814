@@ -4,10 +4,16 @@ import { ListaCircular_usuarios } from "./Estructuras.js";
 import { Matriz } from "./Matriz_ortogonal.js";
 import { Matriz_d } from "./matriz_dispersa.js";
 import { Arbol } from "./Arbol_binario.js";
-
+import { lista_libros } from "./Lista_Libros.js";
+import { Top } from "./lista_top.js";
+import { Cola } from "./Cola_pendientes.js";
 
 console.log("si funciona")
 var arbol_autores = new Arbol()
+
+
+
+var list_books = new lista_libros()
 
 var matriz_ortogonal = new Matriz()
 matriz_ortogonal.llenarmatrizortogonal()
@@ -20,15 +26,50 @@ matriz_ortogonal.graficar_matriz()
 //prueba.Insertar(15,2, "Jorge")
 //prueba.Insertar(4,2, "Ale")
 
+var lista_top = new Top()
+var cola_pendientes = new Cola()
 
 var list = new Lista_Admin()
 list.InsertarAlFinal("Wllfred Perez", "2354168452525", "Wilfred", "123", "+502 (123) 123-4567")
 
 var lista_usuarios = new ListaCircular_usuarios()
 
+
+//---------------------------------Login-----------------------------------------
+
+document.getElementById("Login_To_Home").onclick = back
+
+function back(){
+    document.getElementById("options").style.display = "block"
+    document.getElementById("fondo").style.display = "block"
+    document.getElementById("top").style.display = "block"
+    document.getElementById("grafica_top").style.display = "block"
+
+    document.getElementById("login").style.display = "none"
+    document.getElementById("admin").style.display = "none"
+    document.getElementById("Login_To_Home").style.display = "none"
+
+}
+
+
+
 //-----------------------------------------------------Pagina home--------------------------------------------
 document.getElementById("ingresar_admin").onclick = Ingresar_admin;
 document.getElementById("ingresar_usuario").onclick = Ingresar_usuario;
+
+document.getElementById("Login").onclick = Ingresar_Login;
+
+function Ingresar_Login(){
+    document.getElementById("options").style.display = "none"
+    document.getElementById("Menu").style.display = "none"
+    document.getElementById("fondo").style.display = "none"
+    document.getElementById("top").style.display = "none"
+    document.getElementById("grafica_top").style.display = "none"
+
+    document.getElementById("login").style.display = "block"
+    document.getElementById("admin").style.display = "block"
+    document.getElementById("Login_To_Home").style.display = "block"
+}
 
 document.getElementById("Libros").onclick = Libros;
 document.getElementById("Autores").onclick = Autores;
@@ -37,10 +78,10 @@ function Libros(){
     document.getElementById("options").style.display = "none"
     document.getElementById("Menu").style.display = "none"
     document.getElementById("login").style.display = "none"
-    document.getElementById("login").style.display = "none"
     document.getElementById("admin").style.display = "none"
     document.getElementById("fondo").style.display = "none"
     document.getElementById("top").style.display = "none"
+    document.getElementById("grafica_top").style.display = "none"
 
     document.getElementById("Botones").style.display = "block"
     document.getElementById("lista_libros").style.display = "block"
@@ -64,6 +105,7 @@ function Autores(){
     document.getElementById("admin").style.display = "none"
     document.getElementById("fondo").style.display = "none"
     document.getElementById("top").style.display = "none"
+    document.getElementById("grafica_top").style.display = "none"
 
     document.getElementById("Lista_Autores").style.display = "block"
     document.getElementById("Arbol").style.display = "block"
@@ -77,8 +119,10 @@ function Ingresar_usuario(){
     var contra_usuario = document.getElementById("contraseña_cliente").value
 
     var encontrado = lista_usuarios.Buscar_usuario(user_usuario, contra_usuario)
-
+    
     if(encontrado){
+        //nodo usuario que ingreso al sistema
+        
         document.getElementById("options").style.display = "none"
         document.getElementById("Menu").style.display = "none"
         document.getElementById("login").style.display = "none"
@@ -86,10 +130,14 @@ function Ingresar_usuario(){
         document.getElementById("admin").style.display = "none"
         document.getElementById("fondo").style.display = "none"
         document.getElementById("top").style.display = "none"
+        document.getElementById("grafica_top").style.display = "none"
+        document.getElementById("Login_To_Home").style.display = "none"
 
         document.getElementById("libros_fantasia").style.display = "block"
         document.getElementById("libros_thriller").style.display = "block"
         document.getElementById("Home").style.display = "block"
+        document.getElementById("disponibilidad").style.display = "block"
+        document.getElementById("Cantidad_libros").style.display ="block"
 
 
 
@@ -114,11 +162,15 @@ function Ingresar_admin(){
         document.getElementById("admin").style.display = "none"
         document.getElementById("fondo").style.display = "none"
         document.getElementById("top").style.display = "none"
+        document.getElementById("grafica_top").style.display = "none"
+        document.getElementById("Login_To_Home").style.display = "none"
 
         document.getElementById("botones").style.display = "block"
-        document.getElementById("cola").style.display = "block"
+        document.getElementById("cola_pendiente").style.display = "block"
         document.getElementById("lista").style.display = "block"
         document.getElementById("Menu").style.display = "block"
+        document.getElementById("grafica_lista_listas").style.display = "block"
+        document.getElementById("grafica_cola").style.display = "block"
 
     } else{
         alert("Administrador no encontrado")
@@ -202,12 +254,13 @@ function LeerJsonLibros(){
     xhttp.send()
 
     xhttp.onreadystatechange = function(){
-        
 
         if(this.readyState == 4 && this.status == 200){
             let datos_libros = JSON.parse(this.responseText)
 
             for(let item of datos_libros){
+
+                list_books.insertarAlFinal(item.nombre_libro, item.isbn, item.nombre_autor, item.categoria, item.paginas)
 
                 if(item.categoria == "Fantasia"){
     
@@ -216,14 +269,23 @@ function LeerJsonLibros(){
                     //meto a matriz ortogonal
                     //console.log(typeof(item.columna))
                     matriz_ortogonal.Insertar_dato(item.nombre_libro, item.cantidad, item.categoria, item.columna, item.fila)
+                    
     
                 }
     
             }
+
+            var tarjeta_libro = document.getElementById("lista_libros")
+
+            
+            var tarjeta_individual_libro = list_books.Recorrer()
     
+            tarjeta_libro.innerHTML = tarjeta_individual_libro
             matriz_ortogonal.graficar_matriz()
+            alert("Se cargaron los libros correctamente")
 
         }
+        
 
     }
 
@@ -279,31 +341,249 @@ function Regresar(){
     document.getElementById("admin").style.display = "block"
     document.getElementById("fondo").style.display = "block"
     document.getElementById("top").style.display = "block"
+    document.getElementById("grafica_top").style.display = "block"
 
     document.getElementById("botones").style.display = "none"
-    document.getElementById("cola").style.display = "none"
+    document.getElementById("cola_pendiente").style.display = "none"
     document.getElementById("lista").style.display = "none"
     document.getElementById("Menu").style.display = "none"
+    document.getElementById("grafica_lista_listas").style.display = "none"
+    document.getElementById("grafica_cola").style.display = "none"
+    document.getElementById("Login_To_Home").style.display = "none"
+    document.getElementById("login").style.display = "none"
+    document.getElementById("admin").style.display = "none"
+
 
 
 
 
 }
 
-//-----------------------Pagina cliente-----------------------
+//----------------------------------Pagina cliente--------------------------------
 
 document.getElementById("Home").onclick = Regresar_de_cliente;
+document.getElementById("buscar_libro").onclick = Buscar_libro;
+var boton = document.getElementById("comprar");
+boton.addEventListener("click", Buscar_libro2)
+//var boton_de_calcular = document.getElementById("calcular");
+//boton_de_calcular.addEventListener("click", total);
+
+
+function Buscar_libro(){//solamente muestra la cantidad que hay
+    var nombre_libro_buscar = document.getElementById("libro").value
+    var categoria_libro = document.getElementById("categoria").value
+    //console.log(nombre_libro_buscar)
+    //console.log(categoria_libro)
+    if(categoria_libro == "Thriller"){
+        console.log("dispersa")
+        //busco en la dispersa
+        //graficof
+        //document.getElementById("comprar").onclick = Comprar()
+
+    } else if (categoria_libro == "Fantasia"){//ortogonal
+        
+        console.log("ortogonal")
+        var libro_actual = matriz_ortogonal.Buscar_dato(nombre_libro_buscar)
+        //console.log(libro_actual)
+
+        if(libro_actual != null){
+            var cantidad_de_libros = libro_actual.cantidad
+            matriz_ortogonal.graficar_pila(cantidad_de_libros)
+
+        } else{
+            alert("libro no existente")
+        }
+        
+
+        //grafico al encontrarlo
+
+    }
+}
+
+function Buscar_libro2(){//busca la cantidad que hay y hace la compra
+    var nombre_libro_buscar = document.getElementById("libro").value
+    var categoria_libro = document.getElementById("categoria").value
+    //console.log(nombre_libro_buscar)
+    //console.log(categoria_libro)
+    console.log("si entra")
+    if(categoria_libro == "Thriller"){
+        console.log("dispersa")
+        //busco en la dispersa
+        //graficof
+        document.getElementById("comprar").onclick = Comprar()
+        
+
+    } else if (categoria_libro == "Fantasia"){//ortogonal
+        
+        console.log("ortogonal")
+        var libro_actual = matriz_ortogonal.Buscar_dato(nombre_libro_buscar)
+        //nodo libro
+        if(libro_actual != null){
+            var cantidad_de_libros = libro_actual.cantidad
+            matriz_ortogonal.graficar_pila(cantidad_de_libros)
+
+            //console.log(libro_actual)
+            var cantidad_de_libros = libro_actual.cantidad
+            //cantidad de libros existentes
+            matriz_ortogonal.graficar_pila(cantidad_de_libros)
+
+            var user_usuario = document.getElementById("usuario_cliente").value
+            var contra_usuario = document.getElementById("contraseña_cliente").value
+
+            var usuario_actual = lista_usuarios.Buscar_usuario_actual(user_usuario, contra_usuario)
+            //nodo usuario
+
+            var cantidad = document.getElementById("cantidad").value
+            //cantidad que se quiere comprar
+
+            document.getElementById("comprar").onclick = Comprar_libro(libro_actual.cantidad, libro_actual, usuario_actual, cantidad)
+
+            //grafico al encontrarlo
+
+        } else{
+            alert("libro no existente")
+        }
+
+        
+
+    }
+}
+
+function Comprar_libro(total, nodo_libro, nodo_usuario, cantidad){//total, nodo libro, nodo lista y listas
+    var cantidad_int = Number(cantidad)
+    //console.log(total)
+    console.log(nodo_libro)
+    console.log(nodo_usuario)
+    //
+    //
+    //console.log(typeof(cantidad_int))
+    //console.log(typeof(total))
+
+    var cantidad_libros_por_usuario = 0
+    var pendientes = 0
+    if(cantidad_int == total){ 
+        //se pide misma cantidad existentes
+        for(var c = 1; c<=cantidad_int; c++){
+            cantidad_libros_por_usuario++;
+            nodo_libro.cantidad--
+            
+            //nodo_usuario.
+        }
+        lista_top.Agregar(nodo_usuario.Nombre, cantidad_libros_por_usuario, nodo_usuario.Nombre_usuario)
+        lista_top.Ordenar()
+        //imprimo en html
+        var tarjetas_top = document.getElementById("top")
+        var tarjetas_usuarios_top = lista_top.Imprimir()
+        tarjetas_top.innerHTML = tarjetas_usuarios_top
+        lista_top.Imprimir()
+
+        //grafico top
+        lista_top.graficar()
+
+        nodo_usuario.lista_simple.InsertarAlFinal(nodo_libro.valor, cantidad_libros_por_usuario)
+        lista_usuarios.Imprimir()
+
+    } else if(cantidad_int < total){
+        //se piden menor cantidad existentes
+        for(var c = 1; c<=cantidad_int; c++){
+            cantidad_libros_por_usuario++;
+            nodo_libro.cantidad--;
+            
+            //nodo_usuario.
+        }
+        lista_top.Agregar(nodo_usuario.Nombre, cantidad_libros_por_usuario, nodo_usuario.Nombre_usuario)
+        lista_top.Ordenar()
+        //impirmo en html
+        var tarjetas_top = document.getElementById("top")
+        var tarjetas_usuarios_top = lista_top.Imprimir()
+        tarjetas_top.innerHTML = tarjetas_usuarios_top
+
+        //grafico lista
+        lista_top.graficar()
+
+        nodo_usuario.lista_simple.InsertarAlFinal(nodo_libro.valor, cantidad_libros_por_usuario)
+        //console.log("libro acutalizado")
+        console.log(nodo_libro)
+
+        console.log("usuario actualizado")
+        console.log(nodo_usuario)
+
+        lista_usuarios.Imprimir()
+
+    } else if (cantidad_int > total){
+        //Se pide mayor cantidad existentes
+        //habra cola
+        var faltantes = cantidad_int-total
+        for(var c = 0; c<total; c++){
+            cantidad_libros_por_usuario++;
+            nodo_libro.cantidad--;
+            
+            //nodo_usuario.
+        }
+        lista_top.Agregar(nodo_usuario.Nombre, cantidad_libros_por_usuario, nodo_usuario.Nombre_usuario)
+        lista_top.Ordenar()
+        //imprimo en html
+        var tarjetas_top = document.getElementById("top")
+        var tarjetas_usuarios_top = lista_top.Imprimir()
+        tarjetas_top.innerHTML = tarjetas_usuarios_top
+
+        for(var k = 0; k<faltantes; k++){
+            pendientes++
+
+        }
+        
+        //grafico lista
+        lista_top.graficar()
+
+        //ingreso datos a la cola
+        cola_pendientes.InsertarAlFrente(pendientes, nodo_libro.valor, nodo_usuario.Nombre_usuario)
+
+        //imprimo cola en html
+        var tarjeta_pendiente = document.getElementById("cola_pendiente")
+        var tarjeta_individuales_pendientes = cola_pendientes.Imprimir_tarjeta()
+        tarjeta_pendiente.innerHTML = tarjeta_individuales_pendientes
+
+
+        //grafico cola
+        cola_pendientes.graficar_cola()
+
+        nodo_usuario.lista_simple.InsertarAlFinal(nodo_libro.valor, cantidad_libros_por_usuario)
+        //console.log("libro acutalizado")
+
+        
+
+        lista_usuarios.Imprimir()
+        
+
+
+        console.log(nodo_libro)
+
+        
+        console.log(nodo_usuario)
+
+    }
+
+    matriz_ortogonal.graficar_pila(nodo_libro.cantidad)
+
+    
+
+
+}
+
 
 function Regresar_de_cliente(){
     document.getElementById("options").style.display = "block"
-    document.getElementById("login").style.display = "block"
-    document.getElementById("admin").style.display = "block"
+    document.getElementById("login").style.display = "none"
+    document.getElementById("admin").style.display = "none"
     document.getElementById("fondo").style.display = "block"
     document.getElementById("top").style.display = "block"
+    document.getElementById("grafica_top").style.display = "block"
 
     document.getElementById("libros_fantasia").style.display = "none"
     document.getElementById("libros_thriller").style.display = "none"
     document.getElementById("Home").style.display = "none"
+    document.getElementById("disponibilidad").style.display = "none"
+        document.getElementById("Cantidad_libros").style.display ="none"
     
 }
 
@@ -313,10 +593,11 @@ document.getElementById("autorToHome").onclick = Regresar_de_autor;
 
 function Regresar_de_autor(){
     document.getElementById("options").style.display = "block"
-    document.getElementById("login").style.display = "block"
-    document.getElementById("admin").style.display = "block"
+    document.getElementById("login").style.display = "none"
+    document.getElementById("admin").style.display = "none"
     document.getElementById("fondo").style.display = "block"
     document.getElementById("top").style.display = "block"
+    document.getElementById("grafica_top").style.display = "block"
 
     document.getElementById("Lista_Autores").style.display = "none"
     document.getElementById("Arbol").style.display = "none"
@@ -342,13 +623,25 @@ function Buscar_autor(){
 //------------------------Libros-----------------------
 
 document.getElementById("LibrosToHome").onclick = Regresar_de_libro
+document.getElementById("Ordenar_ascendente").onclick = Ordenar
+
+function Ordenar(){
+    list_books.Ordenar_ascendente()
+    var tarjeta_libro = document.getElementById("lista_ascendente")
+    var contenido = list_books.Recorrer()
+    tarjeta_libro.innerHTML = contenido
+
+}
+
 
 function Regresar_de_libro(){
     document.getElementById("options").style.display = "block"
-    document.getElementById("login").style.display = "block"
-    document.getElementById("admin").style.display = "block"
+    document.getElementById("login").style.display = "none"
+    document.getElementById("admin").style.display = "none"
     document.getElementById("fondo").style.display = "block"
     document.getElementById("top").style.display = "block"
+    document.getElementById("grafica_top").style.display = "block"
+    
 
     document.getElementById("Botones").style.display = "none"
     document.getElementById("lista_libros").style.display = "none"

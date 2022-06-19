@@ -59,8 +59,9 @@ export{Lista_Admin}
 //---------------------------------------Lista usuarios-------------------------------------
 
 class Nodo_libro_comprado{
-    constructor(_nombre_libro){
+    constructor(_nombre_libro, _cantidad){
         this.nombre_libro = _nombre_libro
+        this.cantidad = _cantidad
         this.siguiente = null
     }
 }
@@ -71,8 +72,8 @@ class Lista_libros_comprados{
         this.size = 0;
     }
 
-    InsertarAlFinal(_nombre_libro){
-        var Nuevo_libro_comprado = new Nodo_libro_comprado(_nombre_libro)
+    InsertarAlFinal(_nombre_libro, _cantidad){
+        var Nuevo_libro_comprado = new Nodo_libro_comprado(_nombre_libro, _cantidad)
 
         if(this.primero == null){
             this.primero = Nuevo_libro_comprado
@@ -147,6 +148,23 @@ class ListaCircular_usuarios{
             html += `
             <div id="tarjeta">
             <p> ${actual.Nombre} </p>
+
+            </div>\n
+            `
+
+            var libros = actual.lista_simple
+            var actual_libro = libros.primero
+
+            while(actual_libro != null){
+                html+=`
+                <p>Libro: ${actual.nombre_libro}</p>
+                <p>Libro: ${actual.cantidad}</p>
+                <br>
+                `
+                actual_libro = actual_libro.siguiente
+            }
+
+            html+=`
             </div>\n
             `
 
@@ -180,46 +198,31 @@ class ListaCircular_usuarios{
         return false
     }
 
+    Buscar_usuario_actual(_nombre_usuario, _contraseña){
+        var actual = this.primero;
+        var cont = 0;
+
+        while(cont < this.size){
+
+            if(actual.Nombre_usuario == _nombre_usuario && actual.Contraseña == _contraseña){
+                return actual
+            }
+
+
+            actual = actual.siguiente
+            cont++;
+
+
+        }
+
+        
+    }
+
    
 
 }
 
 export{ListaCircular_usuarios}
-
-
-
-//--------------------------------------Arbol Autores-----------------------------------------
-
-
-
-
-
-//----------------------------------------Matriz dispersa con pila-------------------------------------
-
-
-
-//----------------------------------------Matriz ortogonal con pila-------------------------------------
-
-
-
-
-//----------------------------------------Lista de listas----------------------------------------
-
-
-
-
-//-----------------------------------------Lista doble enlzada-----------------------------------
-
-
-
-
-//------------------------------------------Cola--------------------------------------------------
-
-
-
-
-
-//-----------------------------------------Lista libros--------------------------------------------
 
 
 

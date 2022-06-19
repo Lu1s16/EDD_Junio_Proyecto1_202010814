@@ -1,21 +1,36 @@
-/*-----------------Home------------------*/
-
 #login{
-    height: 400px;
+    height: 300px;
     width: 300px;
-    background-color: bisque;
+    background-color: rgb(16, 235, 235);
     position:absolute;
-    left:60px;
+    left:200px;
     top:150px;
 }
 
 #admin{
-    height: 400px;
+    height: 300px;
     width: 300px;
-    background-color: bisque;
+    background-color: rgb(16, 235, 235);
     position: absolute;
-    left: 1020px;
+    left: 820px;
     top: 150px;
+}
+
+#Login_To_Home{
+    position:absolute;
+    left: 30px;
+    top: 30px;
+
+}
+
+
+/*-----------------Home------------------*/
+
+#Login{
+    position:absolute;
+    left: 1000px;
+    top: 10px;
+
 }
 
 #options{
@@ -29,16 +44,27 @@
 }
 
 #top{
-    height: 300px;
-    width: 1250px;
+    height: 600px;
+    width: 300px;
     background-color: aquamarine;
+    overflow: scroll;
     position:absolute;
     left:60px;
-    top: 600px;
+    top: 150px;
+}
+
+#grafica_top{
+    height: 200px;
+    width: 920px;
+    background-color: darkgoldenrod;
+    position:absolute;
+    left:400px;
+    top: 500px;
+
 }
 
 #fondo{
-    height: 400px;
+    height: 300px;
     width: 590px;
     background-color: rgb(98, 91, 196);
     position:absolute;
@@ -58,6 +84,25 @@
     top: 10px;
 }
 
+#tarjeta_cliente_top{
+    height: 250px;
+    width: 240px;
+    background-color: rgb(233, 15, 204);
+    margin: 20px 20px 20px 20px;
+
+}
+
+#imagen_usuario{
+    height: 120px;
+    width: 150px;
+    background-image: 
+    url("logo_usuario.jpg");
+    /*primero: arriba segundo: tercero: abajo cuarto: izquierda */
+    margin: 20px 20px 20px 40px;
+    background-size: cover;
+
+}
+
 
 /*----------------------Administrador----------------*/
 
@@ -65,27 +110,28 @@
     height: 200px;
     width: 700px;
     background-color: aquamarine;
-    position: relative;
+    position: absolute;
     left: 350px;
-    top: 50px;
+    top: 100px;
 }
 
-#cola{
-    height: 300px;
-    width: 1025px;
+#cola_pendiente{
+    height: 1000px;
+    width: 250px;
+    overflow: scroll;
     background-color: darkturquoise;
-    position: relative;
-    left: 200px;
-    top: 80px;
+    position: absolute;
+    left: 50px;
+    top: 100px;
 
 }
 
 #lista{
-    height: 500px;
-    width: 1025px;
+    height: 1000px;
+    width: 250px;
     background-color: fuchsia;
-    position: relative;
-    left: 200px;
+    position: absolute;
+    left: 1080px;
     top: 100px;
 
 }
@@ -135,41 +181,93 @@
 
 #tarjeta{
     height: 100px;
-    width: 120px;
+    width: 200px;
+    overflow: scroll;
     background-color: rgb(255, 0, 0);
     margin: 20px 20px 20px 20px;
+}
+
+#grafica_lista_listas{
+    height: 800px;
+    width: 700px;
+    background-color: darkorange;
+    position: absolute;
+    left: 350px;
+    top: 700px;
+}
+
+#grafica_cola{
+    height: 300px;
+    width: 700px;
+    background-color: darkorange;
+    position: absolute;
+    left: 350px;
+    top: 350px;
+
+}
+
+#tarjeta_usuario_pendiente{
+    height: 100px;
+    width: 200px;
+    background-color: rgb(255, 251, 0);
+    margin: 20px 20px 20px 20px;
+
 }
 
 
 /*-----------------------------Vista cliente---------------------*/
 
 #libros_fantasia{
-    height: 2000px;
-    width: 1900px;
+    height: 800px;
+    width: 1000px;
     background-image:
     url("estanteria.png");
-    background-repeat: no-repeat;
+    
     background-size: cover;
     background-position: center;
     position: absolute;
-    left: 0px;
+    left: 10px;
     top: 50px;
     
 }
 
 #libros_thriller{
-    height: 1200px; /*altura*/
-    width: 1400px;
-    background-color: rgb(167, 129, 48);
+    height: 800px; /*altura*/
+    width: 1000px;
+    background-image:
+    url("estanteria.png");
+    background-size: cover;
+    
     position: absolute;
-    left: 0px;
-    top: 2100px;
+    left: 10px;
+    top: 900px;
 }
 
 #Home{
     position: absolute;
     left: 5px;
     top: 5px;
+}
+
+#disponibilidad{
+    height: 50px;
+    width: 270px;
+
+    background-color: yellowgreen;
+    position: absolute;
+    left: 1030px;
+    top: 50px;
+
+}
+
+#Cantidad_libros{
+    height: 700px;
+    width: 270px;
+
+    background-color: greenyellow;
+    position: absolute;
+    left: 1030px;
+    top: 150px; 
 }
 
 
@@ -257,6 +355,25 @@
     top: 10px;
 
 }
+
+#tarjeta_libro{
+    height: 280px;
+    width: 200px;
+    background-color: greenyellow;
+    margin: 20px 20px 20px 20px;
+
+}
+
+#imagen_libro{
+    height: 100px;
+    width: 150px;
+    background-image:
+    url("libro_fondo.png");
+
+    margin: 20px 20px 20px 25px;
+    background-size: cover;
+}
+
 
 
 

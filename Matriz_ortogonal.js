@@ -64,6 +64,17 @@ class Lista{
         return null
     }
 
+    buscar_en_lista(dato){
+        var temporal = this.raiz
+        while(temporal != null){
+            if(temporal.valor == dato){
+                return temporal
+            }
+            temporal = temporal.siguiente
+        }
+        return null
+    }
+
 
 }
 
@@ -105,6 +116,8 @@ class Matriz{
     }
 
     graficar_matriz(){
+
+        
 
         var inicio = 'digraph G {\n \
             bgcolor="none"; \n \
@@ -211,8 +224,8 @@ class Matriz{
 
 
         d3.select("#libros_fantasia").graphviz()
-            .width(1900)
-            .height(1900) //altura
+            .width(1000)
+            .height(700) //altura
             .renderDot(inicio)
 
     }
@@ -223,7 +236,7 @@ class Matriz{
 
         var tempx = this.listahorizontal.buscarlistsa(_posx)
         
-        console.log(tempx)
+        //console.log(tempx)
 
         if(_posy == 1){
             tempx.valor = _valor
@@ -235,16 +248,16 @@ class Matriz{
         } else{
             var tempy = tempx.abajo
             while(tempy != null){
-                console.log(_posy)
+                //console.log(_posy)
                 //console.log(tempy.y)
                 if(tempy.y == _posy){
                     tempy.valor = _valor
                     tempy.cantidad = _cantidad
                     tempy.categoria = _categoria
-                    console.log("------")
-                    console.log(tempy.cantidad)
-                    console.log(tempy.valor)
-                    console.log("------")
+                    //console.log("------")
+                    //console.log(tempy.cantidad)
+                    //console.log(tempy.valor)
+                    //console.log("------")
                     return
                 }
                 tempy = tempy.abajo
@@ -253,6 +266,104 @@ class Matriz{
         }
 
         
+    }
+
+    Buscar_dato(nombre){
+        var valor = this.listahorizontal.buscar_en_lista(nombre)
+        if(valor != null){
+            return valor
+        }
+        else{
+            
+            var tempx = this.listahorizontal.buscarlistsa(1)
+            while(tempx != null){
+
+                 
+                 var tempy = tempx.abajo
+                 while(tempy != null){
+                     if(tempy.valor == nombre){
+                         return tempy
+                     }
+                     tempy = tempy.abajo
+                 }
+                 tempx = tempx.siguiente
+                    
+
+                }
+            
+            return null
+            
+            
+        }
+
+
+    }
+    graficar_pila(cantidad){
+
+        if(cantidad > 1){
+            var codigo = 'digraph G { \n \
+                node[fillcolor="mediumturquoise", style=filled, shape="box"]\n \
+                '
+            var uniones = ""
+    
+            var tope = cantidad
+            for(var c = 0; c<cantidad-1; c++){
+                var primero = String(tope)
+                var abajo = String(tope-1)
+                uniones+= primero + "->" + abajo + "\n"
+                tope--;
+    
+            }
+    
+            codigo+= uniones + "}"
+    
+            //console.log(codigo)
+            
+    
+            d3.select("#Cantidad_libros").graphviz()
+                .width(260)
+                .height(600) //altura
+                .renderDot(codigo)
+
+        }else if(cantidad == 0){
+            var codigo = 'digraph G { \n \
+                node[fillcolor="mediumturquoise", style=filled, shape="box"]\n \
+                '
+            var uniones = "Vacio"
+    
+    
+            codigo+= uniones + "}"
+    
+            //console.log(codigo)
+            
+    
+            d3.select("#Cantidad_libros").graphviz()
+                .width(260)
+                .height(600) //altura
+                .renderDot(codigo)
+
+        } 
+        else if (cantidad = 1){
+            var codigo = 'digraph G { \n \
+                node[fillcolor="mediumturquoise", style=filled, shape="box"]\n \
+                '
+            var uniones = "1"
+    
+    
+            codigo+= uniones + "}"
+    
+            //console.log(codigo)
+            
+    
+            d3.select("#Cantidad_libros").graphviz()
+                .width(260)
+                .height(600) //altura
+                .renderDot(codigo)
+
+        }
+        
+
+
     }
 }
 

@@ -1,0 +1,8 @@
+digraph G {
+
+    node[fillcolor="mediumturquoise", style=filled shape="box"]
+5->4
+4->3
+3->2
+2->1
+}

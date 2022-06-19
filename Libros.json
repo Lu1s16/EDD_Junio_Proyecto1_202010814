@@ -10,6 +10,26 @@
         "categoria": "Thriller"
     },
     {
+        "isbn": 1672010107384,
+        "nombre_autor": "Albert Castro",
+        "nombre_libro": "Dogboy",
+        "cantidad": 7,
+        "fila": 25,
+        "columna": 25,
+        "paginas": 250,
+        "categoria": "Fantasia"
+    },
+    {
+        "isbn": 1672010107384,
+        "nombre_autor": "Albert Castro",
+        "nombre_libro": "Carrie",
+        "cantidad": 20,
+        "fila": 1,
+        "columna": 25,
+        "paginas": 250,
+        "categoria": "Fantasia"
+    },
+    {
         "isbn": 7813208731085,
         "nombre_autor": "Laurel Cherry",
         "nombre_libro": "Kiggle",

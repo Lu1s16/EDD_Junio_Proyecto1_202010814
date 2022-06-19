@@ -10,16 +10,8 @@
 </head>
 <body>
 
-    <!------------------------------------------Pagina Home------------------------------------------->
-    
-
-    <div id="options" style="display:block;">
-        <center><font face="Comic Sans MS,arial" size="6">Libreria "catsbooks"</font></center>
-        <button name="button" id="Autores">Autores</button>
-        <button name="button" id="Libros">Libros</button>
-    </div>
-
-    <div id="login" style="display:block;"> <!--login usuario-->
+    <!------------------------------------Login--------------------------------->
+    <div id="login" style="display:none;"> <!--login usuario-->
         <center><p>Login(Usuarios)</p></center>
         <p>Usuario:</p>
         <input type="text" name="usuario" id="usuario_cliente"/>
@@ -30,7 +22,7 @@
         <center><button name="button" id="ingresar_usuario">Ingresar</button></center>
     </div>
 
-    <div id="admin" style="display:block;">  <!--login admin-->
+    <div id="admin" style="display:none;">  <!--login admin-->
         <center><p>Login(Administradores)</p></center>
         <p>Usuario:</p>
         <input type="text" name="usuarion" id="usuario_admin"/>
@@ -42,6 +34,18 @@
 
     </div>
 
+    <button name="button" id="Login_To_Home" style="display:none">Regresar</button>
+
+    <!------------------------------------------Pagina Home------------------------------------------->
+    
+
+    <div id="options" style="display:block;">
+        <center><font face="Comic Sans MS,arial" size="6">Libreria "catsbooks"</font></center>
+        <button name="button" id="Autores">Autores</button>
+        <button name="button" id="Libros">Libros</button>
+        <button name="button" id="Login">Login</button>
+    </div>
+
     <div id="fondo" style="display:block;">
         <br>
         <br>
@@ -50,7 +54,11 @@
     </div>
 
     <div id="top" style="display:block;">
-        <font>Top de clientes</font>
+        <center><font><h2>Top 3</h2></font></center>
+
+    </div>
+
+    <div id="grafica_top" style="display:block;">
 
     </div>
 
@@ -75,15 +83,23 @@
         
 
     </div>
-    <div id="cola" style="display:none;">
-        <center><p>Cola disponibilidad</p></center>
+    <div id="cola_pendiente" style="display:none;">
+        <center><h3>Cola disponibilidad</h3></center>
         
 
     </div>
 
     <div id="lista" style="display:none;">
+        <center><h3>Lista usuarios</h3></center>
 
+    </div>
 
+    <div id="grafica_lista_listas" style="display:none;">
+        <Center><h2>Lista de listas</h2></Center>
+    </div>
+
+    <div id="grafica_cola" style="display:none;">
+        <center><h2>Cola</h2></center>
     </div>
 
     <button name="button" id="Menu" style="display:none;">Regresar</button>
@@ -92,14 +108,29 @@
     <!--------------------------------------------Vista cliente------------------------------------------------->
 
     <div id="libros_fantasia" style="display:none"¨>
-        <center><h1><FONT color="black">Libros fantasia</FONT></h1></center>
+        <center><h1><FONT color="white">Libros fantasia</FONT></h1></center>
     </div>
 
     <div id="libros_thriller" style="display:none;">
-        <center><p>Libros thriller</p></center>
+        <center><h1><Font color="white">Libros thriller</Font></p></center>
     </div>
 
     <button name="button" id="Home" style="display:none;">Regresar</button>
+
+    <div id="disponibilidad" style="display:none;">
+        <button id="buscar_libro">Ver disponibilidad</button>
+        <input type="text" id="libro"/>
+        <select name="select" id="categoria">
+            <option value="Thriller">Thriller</option>
+            <option value="Fantasia">Fantasia</option>
+    
+        </select>
+    </div>
+
+    <div id="Cantidad_libros" style="display:none;">
+        <input type="text" id="cantidad"/>
+        <button name="button" id="comprar">Comprar</button>
+    </div>
 
 
     <!---------------------------------------------Vista libros------------------------------------------------->
@@ -111,6 +142,7 @@
     </div>
 
     <div id="lista_libros" style="display:none;">
+
 
     </div>
 
@@ -126,6 +158,37 @@
     
     <div id="Codigo_Burbuja" style="display:none;">
         <center><h2>Ordenamiento Burbuja</h2></center>
+        <p>var i, k, aux_nombre, aux_isbn, aux_autor, aux_categoria, aux_paginas <br>
+            var actual <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(k = 1; k<this.size; k++){  <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;actual = this.primero <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(i=0; i<(this.size-k); i++){ <br>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(actual.nombre > actual.siguiente.nombre){<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//cambio positiones <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aux_nombre = actual.nombre <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;actual.nombre = actual.siguiente.nombre <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;actual.siguiente.nombre = aux_nombre <br>
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aux_isbn = actual.isbn <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;actual.isbn = actual.siguiente.isbn <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;actual.siguiente.isbn = aux_isbn <br>
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aux_autor = actual.nombre_autor <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;actual.nombre_autor = actual.siguiente.nombre_autor <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;actual.siguiente.nombre_autor = aux_autor <br>
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aux_categoria = actual.categoria <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;actual.categoria = actual.siguiente.categoria <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;actual.siguiente.categoria = aux_categoria <br>
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aux_paginas = actual.paginas <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;actual.paginas = actual.siguiente.paginas <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;actual.siguiente.paginas = aux_paginas v<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;actual = actual.siguiente <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} <br>
+            }</p>
 
     </div>
     <div id="Codigo_Quicksort" style="display:none;">
@@ -139,7 +202,7 @@
     <!---------------------------------------------Vista autores------------------------------------------------>
     
 
-    <center><h1><FONT face="Comic Sans MS,arial">Autores</FONT></h1></center>
+    <center><h1 id="titulo" style="display:none;"><FONT face="Comic Sans MS,arial">Autores</FONT></h1></center>
 
     <div id="Lista_Autores" style="display:none;">
         

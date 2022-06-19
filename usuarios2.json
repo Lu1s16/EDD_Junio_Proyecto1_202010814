@@ -1,0 +1,24 @@
+[
+    {
+        "dpi": 3884144641925,
+        "nombre_completo": "Luis Garcia",
+        "nombre_usuario": "Guicho",
+        "correo": "rhondaleon@bitrex.com",
+        "rol": "Usuario",
+        "contrasenia": "123",
+        "telefono": "+502 (841) 537-2727"
+        
+    },
+    {
+        "dpi": 5158445914766,
+        "nombre_completo": "Jorge",
+        "nombre_usuario": "Bicho",
+        "correo": "bookerbaird@bitrex.com",
+        "rol": "Usuario",
+        "contrasenia": "Bicho",
+        "telefono": "505 (871) 424-3154"
+        
+    }
+
+]
+    
